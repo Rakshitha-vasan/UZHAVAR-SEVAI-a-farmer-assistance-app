@@ -1,0 +1,39 @@
+import tkinter as tk
+from tkinter import messagebox
+import subprocess
+# farmer assisatnce app by RAKSHITHA T
+class App:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("UZHAVAR SEVAI")
+
+        # Create buttons
+        btn_open_file1 = tk.Button(root, text="Disease Detection", command=self.open_file1)
+        btn_open_file2 = tk.Button(root, text="Water Motor", command=self.open_file2)
+
+
+        # Place buttons on the window
+        btn_open_file1.pack(pady=10)
+        btn_open_file2.pack(pady=10)
+
+
+    def open_file1(self):
+        # Replace "file1.py" with the actual name of your Python file
+        try:
+            subprocess.run(["python", "leaf.py"])
+        except Exception as e:
+            messagebox.showerror("Error", f"Error opening File 1: {e}")
+
+    def open_file2(self):
+        # Replace "file2.py" with the actual name of your Python file
+        try:
+            subprocess.run(["python", "water_motor.py"])
+        except Exception as e:
+            messagebox.showerror("Error", f"Error opening File 2: {e}")
+
+
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = App(root)
+    root.mainloop()
